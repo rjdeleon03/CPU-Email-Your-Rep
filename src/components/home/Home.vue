@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <h1>Hello</h1>
+    <h1>E-mail Your Representatives</h1>
+    <RepsTab />
     <v-form>
       <v-row justify="center" no-gutters>
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
@@ -26,8 +27,12 @@
 </template>
 
 <script>
+const RepsTab = () => import("@/components/home/RepsTab.vue");
 const repsUtils = require("@/utils/reps-utils");
 export default {
+  components: {
+    RepsTab
+  },
   data() {
     return {
       source: null

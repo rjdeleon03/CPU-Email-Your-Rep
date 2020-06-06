@@ -39,7 +39,7 @@ const repsUtils = {
                         const rep = {
                             name: item[indices.name].substring(4).trim(),
                             district: item[indices.district],
-                            votedYes: item[indices.vote] == "Yes" ? true : false,
+                            votedYes: item[indices.vote].toUpperCase(),
                             email: item[indices.email].split(" "),
                             twitter: item[indices.twitter],
                             facebook: item[indices.facebook],
@@ -52,6 +52,13 @@ const repsUtils = {
                             }
                         })
 
+                        if (rep.votedYes == "" || !rep.votedYes) {
+                            rep.votedYes = "-";
+                        }
+
+                        if (rep.name.indexOf("Deceased") > -1 && rep.name.indexOf("Acting") == -1) {
+                            return;
+                        }
                         repsMap.set(rep.name, rep);
                     });
                     complete(Array.from(repsMap.values()));
