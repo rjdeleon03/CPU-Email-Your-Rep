@@ -123,6 +123,26 @@ export const repsList = [
         "facebook": ""
     },
     {
+        "name": "Agarao, Benjamin Jr. C.",
+        "district": "Laguna, 4th District",
+        "votedYes": false,
+        "email": [
+            "benjamin.jr.agarao@house.gov.ph"
+        ],
+        "twitter": "",
+        "facebook": "https://www.facebook.com/TropangAgarao/"
+    },
+    {
+        "name": "Aglipay, Michael Edgar Y.",
+        "district": "Party List - DIWA",
+        "votedYes": true,
+        "email": [
+            "michaeledgar.aglipay@house.gov.ph"
+        ],
+        "twitter": "https://twitter.com/diwapartylist",
+        "facebook": "https://www.facebook.com/diwa.partylist/"
+    },
+    {
         "name": "Aguinaldo, Naealla Bainto",
         "district": "Party List - BAHAY",
         "votedYes": false,
@@ -131,6 +151,16 @@ export const repsList = [
         ],
         "twitter": "https://twitter.com/BahayPartylist",
         "facebook": "https://www.facebook.com/BahayPartylist/"
+    },
+    {
+        "name": "Albano, Antonio \"Tonypet\" T.",
+        "district": "Isabela, 1st District",
+        "votedYes": true,
+        "email": [
+            "antonio.albano@house.gov.ph"
+        ],
+        "twitter": "https://twitter.com/Tonypetalbano1",
+        "facebook": "https://www.facebook.com/CongTonypetAlbano/"
     },
     {
         "name": "Albano, Rodolfo B. (Deceased)",
@@ -164,7 +194,7 @@ export const repsList = [
     },
     {
         "name": "Alonte, Marlyn \"Len\" B.",
-        "district": "Bi�an City, Lone District",
+        "district": "Biñan City, Lone District",
         "votedYes": false,
         "email": [
             "marlyn.alonte@house.gov.ph"
@@ -207,10 +237,9 @@ export const repsList = [
         "district": "Agusan del Norte, 2nd District",
         "votedYes": true,
         "email": [
-            "maangelica.amante-matba@house.gov.ph",
-            "cdo_amantematba@yahoo.com"
+            "maangelica.amante-matba@house.gov.ph"
         ],
-        "twitter": "",
+        "twitter": "cdo_amantematba@yahoo.com",
         "facebook": "https://www.facebook.com/AngelAmanteMatba/"
     },
     {
@@ -418,7 +447,7 @@ export const repsList = [
         "facebook": ""
     },
     {
-        "name": "Ba�as-Nograles, Shirlyn",
+        "name": "Bañas-Nograles, Shirlyn",
         "district": "South Cotabato, 1st District",
         "votedYes": true,
         "email": [
@@ -448,7 +477,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/CongKikoBenitez/"
     },
     {
-        "name": "Bernos, Joseph Sto. Ni�o B.",
+        "name": "Bernos, Joseph Sto. Niño B.",
         "district": "Abra, Lone District",
         "votedYes": true,
         "email": [
@@ -702,7 +731,7 @@ export const repsList = [
         "facebook": ""
     },
     {
-        "name": "Cayetano, Alan Peter \"Compa�ero\" S.",
+        "name": "Cayetano, Alan Peter \"Compañero\" S.",
         "district": "Taguig City-Pateros, 1st District",
         "votedYes": true,
         "email": [
@@ -900,6 +929,16 @@ export const repsList = [
         ],
         "twitter": "",
         "facebook": "https://www.facebook.com/PaulRuizDaza"
+    },
+    {
+        "name": "De Jesus, Presley C.",
+        "district": "Party List - PHILRECA",
+        "votedYes": true,
+        "email": [
+            "presley.dejesus@house.gov.ph"
+        ],
+        "twitter": "",
+        "facebook": "https://www.facebook.com/PhilrecaPartylist/"
     },
     {
         "name": "De Venecia, Christopher V.P.",
@@ -1153,7 +1192,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/ABONO-Party-List-764374123692391/"
     },
     {
-        "name": "Fari�as, Ria Christina G.",
+        "name": "Fariñas, Ria Christina G.",
         "district": "Ilocos Norte, 1st District",
         "votedYes": false,
         "email": [
@@ -1163,7 +1202,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/CongRiaFarinas/"
     },
     {
-        "name": "Fari�as, Rudys Caesar I G.",
+        "name": "Fariñas, Rudys Caesar I G.",
         "district": "Party List - PROBINSYANO AKO",
         "votedYes": false,
         "email": [
@@ -1599,7 +1638,7 @@ export const repsList = [
         "email": [
             "glona.labadlabad@house.gov.ph"
         ],
-        "twitter": "",
+        "twitter": "158. Javier, Lolita T.",
         "facebook": "https://www.facebook.com/CongGlona/"
     },
     {
@@ -1813,7 +1852,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/RuthMarianoHernandez/"
     },
     {
-        "name": "Mari�o, Mario Vittorio \"Marvey\" A.",
+        "name": "Mariño, Mario Vittorio \"Marvey\" A.",
         "district": "Batangas, 5th District",
         "votedYes": true,
         "email": [
@@ -1893,7 +1932,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/CWSpartylistPH/"
     },
     {
-        "name": "Natividad-Naga�o, Maricel G., MD.",
+        "name": "Natividad-Nagaño, Maricel G., MD.",
         "district": "Nueva Ecija, 4th District",
         "votedYes": false,
         "email": [
@@ -1964,7 +2003,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/Ramon-Nolasco-Jr-2256723004407026/"
     },
     {
-        "name": "Nu�ez-Malanyaon, Corazon T.",
+        "name": "Nuñez-Malanyaon, Corazon T.",
         "district": "Davao Oriental, 1st District",
         "votedYes": false,
         "email": [
@@ -1985,7 +2024,7 @@ export const repsList = [
     },
     {
         "name": "Olivarez, Eric L.",
-        "district": "Para�aque City, 1st District",
+        "district": "Parañaque City, 1st District",
         "votedYes": false,
         "email": [
             "eric.olivarez@house.gov.ph"
@@ -2104,7 +2143,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/cong.mcp2019"
     },
     {
-        "name": "Pe�a, Romulo Jr. \"Kid\"",
+        "name": "Peña, Romulo Jr. \"Kid\"",
         "district": "Makati City, 1st District",
         "votedYes": false,
         "email": [
@@ -2565,7 +2604,7 @@ export const repsList = [
         "facebook": "https://www.facebook.com/KuyaJSA/"
     },
     {
-        "name": "Taduran, Rowena Ni�a O.",
+        "name": "Taduran, Rowena Niña O.",
         "district": "Party List - ACT-CIS",
         "votedYes": true,
         "email": [
@@ -2587,7 +2626,7 @@ export const repsList = [
     },
     {
         "name": "Tambunting, Joy Myra S.",
-        "district": "Para�aque City, 2nd District",
+        "district": "Parañaque City, 2nd District",
         "votedYes": false,
         "email": [
             "joymyra.tambunting@house.gov.ph"
@@ -2919,7 +2958,7 @@ export const repsList = [
     },
     {
         "name": "Villar, Camille A.",
-        "district": "Las Pi�as City, Lone District",
+        "district": "Las Piñas City, Lone District",
         "votedYes": true,
         "email": [
             "camille.villar@house.gov.ph"
@@ -3027,45 +3066,5 @@ export const repsList = [
         ],
         "twitter": "",
         "facebook": ""
-    },
-    {
-        "name": "e Jesus, Presley C.",
-        "district": "Party List - PHILRECA",
-        "votedYes": true,
-        "email": [
-            "presley.dejesus@house.gov.ph"
-        ],
-        "twitter": "",
-        "facebook": "https://www.facebook.com/PhilrecaPartylist/"
-    },
-    {
-        "name": "garao, Benjamin Jr. C.",
-        "district": "Laguna, 4th District",
-        "votedYes": false,
-        "email": [
-            "benjamin.jr.agarao@house.gov.ph"
-        ],
-        "twitter": "",
-        "facebook": "https://www.facebook.com/TropangAgarao/"
-    },
-    {
-        "name": "glipay, Michael Edgar Y.",
-        "district": "Party List - DIWA",
-        "votedYes": true,
-        "email": [
-            "michaeledgar.aglipay@house.gov.ph"
-        ],
-        "twitter": "https://twitter.com/diwapartylist",
-        "facebook": "https://www.facebook.com/diwa.partylist/"
-    },
-    {
-        "name": "lbano, Antonio \"Tonypet\" T.",
-        "district": "Isabela, 1st District",
-        "votedYes": true,
-        "email": [
-            "antonio.albano@house.gov.ph"
-        ],
-        "twitter": "https://twitter.com/Tonypetalbano1",
-        "facebook": "https://www.facebook.com/CongTonypetAlbano/"
     }
 ];

@@ -5,7 +5,7 @@ const NOTES = ["MINORITY LEADER", "PRINCIPAL AUTHOR"];
 const repsUtils = {
     get: (papa, file, complete, error) => {
         papa.parse(file, {
-            delimiter: ",",
+            delimiter: ",", encoding: "utf-8",
             complete: (result) => {
 
                 var repsMap = new SortedMap();
@@ -37,7 +37,7 @@ const repsUtils = {
                         }
 
                         const rep = {
-                            name: item[indices.name].substring(5),
+                            name: item[indices.name].substring(4).trim(),
                             district: item[indices.district],
                             votedYes: item[indices.vote] == "Yes" ? true : false,
                             email: item[indices.email].split(" "),
