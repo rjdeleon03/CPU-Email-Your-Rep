@@ -1,5 +1,7 @@
 const SortedMap = require("collections/sorted-map");
 
+const NOTES = ["MINORITY LEADER", "PRINCIPAL AUTHOR"];
+
 const repsUtils = {
     get: (papa, file, complete, error) => {
         papa.parse(file, {
@@ -42,6 +44,14 @@ const repsUtils = {
                             twitter: item[indices.twitter],
                             facebook: item[indices.facebook],
                         }
+
+                        NOTES.forEach(note => {
+                            if (rep.name.indexOf(note) != -1) {
+                                rep.name = rep.name.replace(note, "").trim();
+                                rep.note = note;
+                            }
+                        })
+
                         repsMap.set(rep.name, rep);
                     });
                     complete(Array.from(repsMap.values()));
