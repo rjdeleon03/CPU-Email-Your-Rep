@@ -1,7 +1,10 @@
 <template>
   <v-container>
-    <h1>E-mail Your Representatives</h1>
+    <!-- <h1>E-mail Your Representatives</h1> -->
     <RepsTab />
+    <!-- <br />
+    <v-divider></v-divider>
+    <br />
     <v-form>
       <v-row justify="center" no-gutters>
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
@@ -9,7 +12,7 @@
             v-model="source"
             label="Source File"
             required
-            color="pink darken-4"
+            color="amber"
             prepend-icon="mdi-file-table-outline"
           ></v-file-input>
         </v-col>
@@ -22,7 +25,7 @@
           </v-btn>
         </v-col>
       </v-row>
-    </v-form>
+    </v-form>-->
   </v-container>
 </template>
 
