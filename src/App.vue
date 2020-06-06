@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{background: $vuetify.theme.themes[theme].background}">
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
@@ -18,6 +18,11 @@ const Footer = () => import("./components/layout/Footer.vue");
 
 export default {
   name: "App",
+  computed: {
+    theme() {
+      return this.$vuetify.theme.dark ? "dark" : "light";
+    }
+  },
   components: {
     // HelloWorld
     Navbar,
@@ -35,7 +40,7 @@ export default {
   text-align: center;
 }
 #main-container {
-  background-color: #fafafa !important;
+  /* background-color: #fafafa !important; */
 }
 /* unvisited link */
 .v-application a:link {
