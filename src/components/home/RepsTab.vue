@@ -4,8 +4,8 @@
       <v-container fluid>
         <v-row justify="center" no-gutters>
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-            <v-card outlined class="pa-2 mx-auto" @click="isRepsDialogVisible = true">
-              <span class="subheading">Recipients (Click to Add)</span>
+            <v-card outlined class="pa-2 mx-auto" @click="displayRepsSelection">
+              <p class="subheading">Recipients (Click to Add)</p>
               <v-chip-group column active-class="primary--text">
                 <v-chip
                   v-for="(rep, index) in selectedReps"
@@ -146,28 +146,35 @@ export default {
     // this.tableSearch = "";
   },
   watch: {
-    selectedReps: value => {
-      console.log(value);
+    subject: {
+      handler() {
+        this.submitDisabled = this.computedButtonDisabled;
+      }
+    },
+    body: {
+      handler() {
+        this.submitDisabled = this.computedButtonDisabled;
+      }
+    },
+    selectedReps: {
+      handler() {
+        this.submitDisabled = this.computedButtonDisabled;
+      }
     }
-    // filters: function() {
-    //   this.tableHeaders = this.computedHeaders;
-    // }
   },
   computed: {
+    computedButtonDisabled() {
+      if (!this.selectedReps || this.selectedReps.length == 0) return true;
+      if (!this.subject || this.subject == "") return true;
+      if (!this.body || this.body == "") return true;
+      return false;
+    },
     computedHeaders() {
       return [
         {
           text: "Name",
           align: "start",
           value: "name"
-          // filter: value => {
-          //   console.log(
-          //     value.toLowerCase() +
-          //       " --- " +
-          //       value.toLowerCase().includes(this.tableSearch.toLowerCase())
-          //   );
-          //   return value.toLowerCase().includes(this.tableSearch.toLowerCase());
-          // }
         },
         {
           text: "District / Partylist",
@@ -196,8 +203,11 @@ export default {
     }
   },
   methods: {
-    handleRepsSelection(selectedReps) {
-      this.selectedReps = selectedReps;
+    displayRepsSelection() {
+      this.isRepsDialogVisible = true;
+    },
+    handleRepsSelection(selectedRepsLocal) {
+      this.selectedReps = selectedRepsLocal;
       this.isRepsDialogVisible = false;
     },
     removeSelectedRep(rep) {
@@ -239,5 +249,10 @@ export default {
 <style>
 #table-button {
   margin-top: 20px;
+}
+p.subheading {
+  margin-bottom: 0;
+  margin-left: 2px;
+  text-align: start;
 }
 </style>

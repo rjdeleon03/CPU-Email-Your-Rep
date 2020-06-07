@@ -52,7 +52,7 @@
 export default {
   name: "RepsDialog",
   components: {},
-  props: ["isVisible", "repsList", "selectedReps"],
+  props: ["isVisible", "repsList", "selectedReps", ""],
   data() {
     return {
       rowsPerPageItems: [5, 10, 15, -1],
@@ -83,8 +83,15 @@ export default {
       this.$emit("updateSelectedReps", this.selectedRepsLocal);
     }
   },
-  mounted() {
-    console.log(this.selectedRepsLocal);
+  watch: {
+    isVisible: {
+      handler(value) {
+        if (value) {
+          //   console.log(this.selectedReps);
+          this.selectedRepsLocal = this.selectedReps;
+        }
+      }
+    }
   }
 };
 </script>
