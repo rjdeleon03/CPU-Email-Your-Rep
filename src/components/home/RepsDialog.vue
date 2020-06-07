@@ -39,7 +39,7 @@
         <template v-slot:item.data-table-select="{ item, isSelected, select }">
           <v-simple-checkbox
             :value="isSelected"
-            :disabled="limitReached && !isSelected"
+            :disabled="(limitReached && !isSelected) || item.email.length < 1 || item.email[0] == ''"
             @input="select($event)"
           ></v-simple-checkbox>
         </template>
