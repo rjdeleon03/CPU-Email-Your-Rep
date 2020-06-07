@@ -8,8 +8,9 @@
     </v-row>
     <!-- <h1>E-mail Your Representatives</h1> -->
     <RepsTab />
-    <!-- <br />
-    <v-divider></v-divider>
+    <br />
+
+    <!-- <v-divider></v-divider>
     <br />
     <v-form>
       <v-row justify="center" no-gutters>

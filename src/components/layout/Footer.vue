@@ -20,7 +20,7 @@
           href="mailto:secretariat@cp-union.com"
         >secretariat@cp-union.com</a>.
       </v-card-text>
-
+      <v-divider></v-divider>
       <v-card-text class="white--text">
         {{ new Date().getFullYear() }} —
         <strong>Computer Professionals' Union</strong>

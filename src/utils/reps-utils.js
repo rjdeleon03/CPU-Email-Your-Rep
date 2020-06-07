@@ -56,7 +56,7 @@ const repsUtils = {
                             rep.votedYes = "-";
                         }
 
-                        if (rep.name.indexOf("Deceased") > -1 && rep.name.indexOf("Acting") == -1) {
+                        if (!rep.name || rep.name == "" || rep.votedYes != "YES" || (rep.name.indexOf("Deceased") > -1 && rep.name.indexOf("Acting") == -1)) {
                             return;
                         }
                         repsMap.set(rep.name, rep);
