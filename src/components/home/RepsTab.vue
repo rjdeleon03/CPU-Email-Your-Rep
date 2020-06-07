@@ -5,11 +5,18 @@
         <v-row justify="center" no-gutters>
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
             <v-card outlined class="pa-2 mx-auto" @click="isRepsDialogVisible = true">
+              <span class="subheading">Recipients (Click to Add)</span>
               <v-chip-group column active-class="primary--text">
-                <v-chip>Extra Soft</v-chip>
+                <v-chip
+                  v-for="(rep, index) in selectedReps"
+                  :key="index"
+                  close
+                  @click:close="removeSelectedRep(rep)"
+                >{{ rep.name }}</v-chip>
+                <!-- <v-chip>Extra Soft</v-chip>
                 <v-chip>Soft</v-chip>
                 <v-chip>Medium</v-chip>
-                <v-chip>Hard</v-chip>
+                <v-chip>Hard</v-chip>-->
               </v-chip-group>
             </v-card>
           </v-col>
@@ -79,7 +86,12 @@
         </template>
       </v-data-table>
     </v-card>-->
-    <RepsDialog :isVisible="isRepsDialogVisible" />
+    <RepsDialog
+      :isVisible="isRepsDialogVisible"
+      :repsList="reps"
+      :selectedReps="selectedReps"
+      @updateSelectedReps="handleRepsSelection"
+    />
   </v-container>
 </template>
 
@@ -134,6 +146,9 @@ export default {
     // this.tableSearch = "";
   },
   watch: {
+    selectedReps: value => {
+      console.log(value);
+    }
     // filters: function() {
     //   this.tableHeaders = this.computedHeaders;
     // }
@@ -181,6 +196,18 @@ export default {
     }
   },
   methods: {
+    handleRepsSelection(selectedReps) {
+      this.selectedReps = selectedReps;
+      this.isRepsDialogVisible = false;
+    },
+    removeSelectedRep(rep) {
+      this.selectedReps = this.arrayRemove(this.selectedReps, rep);
+    },
+    arrayRemove(arr, value) {
+      return arr.filter(function(ele) {
+        return ele != value;
+      });
+    },
     sendEmailButtonClicked() {
       console.log(this.filters);
     },
