@@ -35,7 +35,10 @@
         </v-row>
 
         <v-row justify="center">
-          <v-col cols="12" xs="2">
+          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+            <p
+              class="note"
+            >NOTE: Clicking on this button will redirect you to your default email application.</p>
             <v-btn
               class="default-button"
               @click="sendEmailButtonClicked"
@@ -271,6 +274,9 @@ export default {
 <style>
 #table-button {
   margin-top: 20px;
+}
+p.note {
+  font-size: 13px;
 }
 p.subheading {
   margin-bottom: 0;

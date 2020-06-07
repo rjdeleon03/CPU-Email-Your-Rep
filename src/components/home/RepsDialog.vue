@@ -7,7 +7,7 @@
         <v-text-field
           v-model="tableSearch"
           append-icon="mdi-magnify"
-          label="Search"
+          label="Search by Name, District / Partylist, or Vote"
           color="amber"
           single-line
           hide-details
