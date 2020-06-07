@@ -5,14 +5,17 @@
         <v-row justify="center" no-gutters>
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
             <v-card outlined class="pa-2 mx-auto" @click="displayRepsSelection">
-              <p class="subheading">Recipients (Click to Add)</p>
+              <p class="subheading">
+                Recipient Representative
+                <v-icon>mdi-cursor-default-click</v-icon>
+              </p>
               <v-chip-group column active-class="primary--text">
                 <v-chip
                   v-for="(rep, index) in selectedReps"
                   :key="index"
                   close
                   @click:close="removeSelectedRep(rep)"
-                >{{ rep.name }}</v-chip>
+                >{{ rep.name }} ({{ rep.district }})</v-chip>
                 <!-- <v-chip>Extra Soft</v-chip>
                 <v-chip>Soft</v-chip>
                 <v-chip>Medium</v-chip>
@@ -22,7 +25,7 @@
             <v-row class="footnote-row">
               <v-spacer></v-spacer>
               <v-btn outlined class="pa-2" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
-                <span>Source: #JUNKTERRORBILL Initiative</span>
+                <span>Source</span>
               </v-btn>
               <v-btn
                 outlined

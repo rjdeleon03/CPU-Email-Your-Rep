@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="isVisible" max-width="700" persistent>
     <v-card>
-      <v-card-title class="headline">Select Recipients (Up to {{limit}})</v-card-title>
+      <v-card-title class="headline">Select One Recipient</v-card-title>
 
       <v-card-text>
         <v-text-field
@@ -25,7 +25,7 @@
       <v-data-table
         :headers="tableHeaders"
         :items="repsList"
-        :single-select="false"
+        :single-select="true"
         :search="tableSearch"
         :footer-props="{
           'items-per-page-options': rowsPerPageItems
@@ -60,7 +60,7 @@ export default {
   props: ["isVisible", "repsList", "selectedReps", ""],
   data() {
     return {
-      limit: 50,
+      limit: 1,
       rowsPerPageItems: [5, 10, 15, -1],
       tableSearch: "",
       tableHeaders: [
