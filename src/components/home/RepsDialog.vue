@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="isVisible" max-width="600" persistent>
+  <v-dialog v-model="isVisible" max-width="700" persistent>
     <v-card>
       <v-card-title class="headline">Select Recipients (Up to {{limit}})</v-card-title>
 
@@ -35,7 +35,7 @@
         v-model="selectedRepsLocal"
         show-select
       >
-        <!-- <template v-slot:header.data-table-select></template> -->
+        <template v-slot:header.data-table-select></template>
         <template v-slot:item.data-table-select="{ item, isSelected, select }">
           <v-simple-checkbox
             :value="isSelected"

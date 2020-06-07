@@ -91,44 +91,11 @@
         </v-row>
       </v-container>
     </v-form>
-    <!-- <v-card>
-      <v-card-text>
-        <v-text-field
-          v-model="tableSearch"
-          append-icon="mdi-magnify"
-          label="Search"
-          color="amber"
-          single-line
-          hide-details
-          class="search-field"
-        ></v-text-field>
-      </v-card-text>
-      <v-card-text>
-        <v-chip-group v-model="filters" column multiple center-active>
-          <v-chip filter outlined>Voted YES</v-chip>
-          <v-chip filter outlined>Abstained</v-chip>
-          <v-chip filter outlined>Vote Unknown</v-chip>
-          <v-chip filter outlined>Voted NO</v-chip>
-        </v-chip-group>
-      </v-card-text>
-      <v-data-table
-        :headers="tableHeaders"
-        :items="reps"
-        :single-select="false"
-        :search="tableSearch"
-        :footer-props="{
-          'items-per-page-options': rowsPerPageItems
-        }"
-        :items-per-page="5"
-        item-key="name"
-        v-model="selectedReps"
-        show-select
-      >
-        <template v-slot:top>
-        <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
-        </template>
-      </v-data-table>
-    </v-card>-->
+    <v-snackbar v-model="snackbar" :timeout="2000">
+      The text has been copied to the clipboard
+      <v-btn color="amber darken-4" text @click="snackbar = false">Close</v-btn>
+    </v-snackbar>
+
     <RepsDialog
       :isVisible="isRepsDialogVisible"
       :repsList="reps"
@@ -146,6 +113,9 @@ export default {
   components: { RepsDialog },
   data() {
     return {
+      // Snackbar
+      snackbar: false,
+
       // Email contents
       subject: "",
       body: "",
@@ -249,12 +219,15 @@ export default {
   methods: {
     copyEmails() {
       this.$copyText(this.getEmails());
+      this.snackbar = true;
     },
     copySubject() {
       this.$copyText(this.subject);
+      this.snackbar = true;
     },
     copyBody() {
       this.$copyText(this.body);
+      this.snackbar = true;
     },
     displayRepsSelection() {
       this.isRepsDialogVisible = true;
