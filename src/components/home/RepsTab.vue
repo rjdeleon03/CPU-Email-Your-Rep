@@ -21,8 +21,8 @@
             </v-card>
             <v-row class="footnote-row">
               <v-spacer></v-spacer>
-              <v-btn outlined class="pa-0" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
-                <span>Source</span>
+              <v-btn outlined class="pa-2" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
+                <span>Source: #JUNKTERRORBILL Initiative</span>
               </v-btn>
               <v-btn
                 outlined
@@ -76,8 +76,7 @@
         <v-row justify="center">
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
             <p class="note">
-              NOTE: Clicking on this button will redirect you to your default email application.
-              <br />We
+              NOTE: Clicking on this button will redirect you to your default email application. We
               <strong>STRONGLY RECOMMEND</strong> using a dummy account to send the email.
             </p>
             <v-btn

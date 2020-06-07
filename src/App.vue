@@ -10,13 +10,13 @@
         <router-view />
       </v-content>
     </div>
-    <!-- <Footer /> -->
+    <Footer />
   </v-app>
 </template>
 
 <script>
 // const Navbar = () => import("./components/layout/Navbar.vue");
-// const Footer = () => import("./components/layout/Footer.vue");
+const Footer = () => import("./components/layout/Footer.vue");
 
 export default {
   name: "App",
@@ -28,7 +28,7 @@ export default {
   components: {
     // HelloWorld
     // Navbar,
-    // Footer
+    Footer
   }
 };
 </script>
