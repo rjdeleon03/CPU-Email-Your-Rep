@@ -1,6 +1,47 @@
 <template>
   <v-container>
-    <v-card>
+    <v-form ref="form">
+      <v-container fluid>
+        <v-row justify="center" no-gutters>
+          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+            <v-card outlined class="pa-2 mx-auto" @click="isRepsDialogVisible = true">
+              <v-chip-group column active-class="primary--text">
+                <v-chip>Extra Soft</v-chip>
+                <v-chip>Soft</v-chip>
+                <v-chip>Medium</v-chip>
+                <v-chip>Hard</v-chip>
+              </v-chip-group>
+            </v-card>
+          </v-col>
+        </v-row>
+        <br />
+
+        <v-row justify="center" no-gutters>
+          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+            <v-text-field v-model="subject" label="Subject" single-line outlined></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row justify="center" no-gutters>
+          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+            <v-textarea v-model="body" label="Body" single-line outlined></v-textarea>
+          </v-col>
+        </v-row>
+
+        <v-row justify="center">
+          <v-col cols="12" xs="2">
+            <v-btn
+              class="default-button"
+              @click="sendEmailButtonClicked"
+              color="amber darken-3"
+              :disabled="submitDisabled"
+            >
+              <span class="button-text">Send Email</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+    <!-- <v-card>
       <v-card-text>
         <v-text-field
           v-model="tableSearch"
@@ -12,14 +53,14 @@
           class="search-field"
         ></v-text-field>
       </v-card-text>
-      <!-- <v-card-text>
+      <v-card-text>
         <v-chip-group v-model="filters" column multiple center-active>
           <v-chip filter outlined>Voted YES</v-chip>
           <v-chip filter outlined>Abstained</v-chip>
           <v-chip filter outlined>Vote Unknown</v-chip>
           <v-chip filter outlined>Voted NO</v-chip>
         </v-chip-group>
-      </v-card-text>-->
+      </v-card-text>
       <v-data-table
         :headers="tableHeaders"
         :items="reps"
@@ -33,32 +74,35 @@
         v-model="selectedReps"
         show-select
       >
-        <!-- <template v-slot:top>
+        <template v-slot:top>
         <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
-        </template>-->
+        </template>
       </v-data-table>
-    </v-card>
-
-    <v-row justify="center" id="table-button">
-      <v-col cols="12" xs="2">
-        <v-btn class="default-button" @click="sendEmailButtonClicked" color="amber darken-3">
-          <span class="button-text">Send Email</span>
-        </v-btn>
-      </v-col>
-    </v-row>
+    </v-card>-->
+    <RepsDialog :isVisible="isRepsDialogVisible" />
   </v-container>
 </template>
 
 <script>
 import { repsList } from "@/data/reps-list";
+const RepsDialog = () => import("@/components/home/RepsDialog");
 export default {
   name: "RepsTab",
+  components: { RepsDialog },
   data() {
     return {
+      // Email contents
+      subject: "",
+      body: "",
+
+      // Reps selection
+      isRepsDialogVisible: false,
+
       reps: repsList,
       selectedReps: [],
       filters: [0, 1, 2],
       rowsPerPageItems: [5, 10, 15, -1],
+      submitDisabled: true,
 
       tableSearch: "",
       tableHeaders: [
