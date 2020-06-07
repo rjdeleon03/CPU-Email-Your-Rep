@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <v-row justify="center" no-gutters>
+      <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+        <h1>#JunkTerrorBill</h1>
+        <p>Send an email to your representatives to further strengthen our calls to junk the Anti-Terrorism Act of 2020!</p>
+      </v-col>
+    </v-row>
     <!-- <h1>E-mail Your Representatives</h1> -->
     <RepsTab />
     <!-- <br />

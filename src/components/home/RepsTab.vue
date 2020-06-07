@@ -19,26 +19,67 @@
                 <v-chip>Hard</v-chip>-->
               </v-chip-group>
             </v-card>
+            <v-row class="footnote-row">
+              <v-spacer></v-spacer>
+              <v-btn outlined class="pa-0" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
+                <span>Source</span>
+              </v-btn>
+              <v-btn
+                outlined
+                class="pa-0"
+                @click="copyEmails"
+                style="margin-left: 6px"
+                :disabled="selectedReps.length == 0"
+              >
+                <span>Copy</span>
+              </v-btn>
+            </v-row>
           </v-col>
         </v-row>
-        <br />
 
         <v-row justify="center" no-gutters>
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
             <v-text-field v-model="subject" label="Subject" single-line outlined></v-text-field>
+            <v-row class="footnote-row">
+              <v-spacer></v-spacer>
+              <v-btn
+                outlined
+                class="pa-0"
+                @click="copySubject"
+                style="margin-left: 6px"
+                :disabled="subject == ''"
+              >
+                <span>Copy</span>
+              </v-btn>
+            </v-row>
           </v-col>
         </v-row>
         <v-row justify="center" no-gutters>
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
             <v-textarea v-model="body" label="Body" single-line outlined></v-textarea>
+            <v-row class="footnote-row">
+              <v-spacer></v-spacer>
+              <v-btn
+                outlined
+                class="pa-0"
+                @click="copyBody"
+                style="margin-left: 6px"
+                :disabled="body == ''"
+              >
+                <span>Copy</span>
+              </v-btn>
+            </v-row>
           </v-col>
         </v-row>
 
+        <br />
         <v-row justify="center">
           <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-            <p
-              class="note"
-            >NOTE: Clicking on this button will redirect you to your default email application.</p>
+            <p class="note">
+              NOTE: Clicking on this button will redirect you to your default email application.
+              <br />We
+              <strong>STRONGLY RECOMMEND</strong> using a dummy account to send the email.
+            </p>
             <v-btn
               class="default-button"
               @click="sendEmailButtonClicked"
@@ -207,6 +248,15 @@ export default {
     }
   },
   methods: {
+    copyEmails() {
+      this.$copyText(this.getEmails());
+    },
+    copySubject() {
+      this.$copyText(this.subject);
+    },
+    copyBody() {
+      this.$copyText(this.body);
+    },
     displayRepsSelection() {
       this.isRepsDialogVisible = true;
     },
@@ -282,5 +332,19 @@ p.subheading {
   margin-bottom: 0;
   margin-left: 2px;
   text-align: start;
+}
+.footnote-row {
+  margin-top: 4px;
+  margin-right: 2px;
+}
+.footnote-row span {
+  font-size: 11px;
+}
+div.v-text-field__details {
+  display: none;
+}
+div.v-input__slot {
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="isVisible" max-width="600" persistent>
     <v-card>
-      <v-card-title class="headline">Select Recipients (Max. of {{limit}})</v-card-title>
+      <v-card-title class="headline">Select Recipients (Up to {{limit}})</v-card-title>
 
       <v-card-text>
         <v-text-field

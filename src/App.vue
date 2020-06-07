@@ -4,17 +4,19 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
     />
-    <Navbar />
-    <v-content id="main-container">
-      <router-view />
-    </v-content>
-    <Footer />
+    <!-- <Navbar /> -->
+    <div id="main-container">
+      <v-content id="main-container">
+        <router-view />
+      </v-content>
+    </div>
+    <!-- <Footer /> -->
   </v-app>
 </template>
 
 <script>
-const Navbar = () => import("./components/layout/Navbar.vue");
-const Footer = () => import("./components/layout/Footer.vue");
+// const Navbar = () => import("./components/layout/Navbar.vue");
+// const Footer = () => import("./components/layout/Footer.vue");
 
 export default {
   name: "App",
@@ -25,8 +27,8 @@ export default {
   },
   components: {
     // HelloWorld
-    Navbar,
-    Footer
+    // Navbar,
+    // Footer
   }
 };
 </script>
@@ -40,6 +42,7 @@ export default {
   text-align: center;
 }
 #main-container {
+  margin-top: 10px;
   /* background-color: #fafafa !important; */
 }
 /* unvisited link */
