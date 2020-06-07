@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="isVisible" max-width="600" persistent>
     <v-card>
-      <v-card-title class="headline">Select Recipients</v-card-title>
+      <v-card-title class="headline">Select Recipients (Max. of {{limit}})</v-card-title>
 
       <v-card-text>
         <v-text-field
@@ -35,9 +35,14 @@
         v-model="selectedRepsLocal"
         show-select
       >
-        <!-- <template v-slot:top>
-          <v-switch v-model="singleSelect" label="Single select" class="pa-3"></v-switch>
-        </template>-->
+        <!-- <template v-slot:header.data-table-select></template> -->
+        <template v-slot:item.data-table-select="{ item, isSelected, select }">
+          <v-simple-checkbox
+            :value="isSelected"
+            :disabled="limitReached && !isSelected"
+            @input="select($event)"
+          ></v-simple-checkbox>
+        </template>
       </v-data-table>
 
       <v-card-actions>
@@ -55,6 +60,7 @@ export default {
   props: ["isVisible", "repsList", "selectedReps", ""],
   data() {
     return {
+      limit: 50,
       rowsPerPageItems: [5, 10, 15, -1],
       tableSearch: "",
       tableHeaders: [
@@ -81,6 +87,9 @@ export default {
   methods: {
     close() {
       this.$emit("updateSelectedReps", this.selectedRepsLocal);
+    },
+    select(event) {
+      console.log(event);
     }
   },
   watch: {
@@ -91,6 +100,11 @@ export default {
           this.selectedRepsLocal = this.selectedReps;
         }
       }
+    }
+  },
+  computed: {
+    limitReached() {
+      return this.selectedRepsLocal.length >= this.limit;
     }
   }
 };
