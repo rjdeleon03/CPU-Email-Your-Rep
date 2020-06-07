@@ -106,6 +106,7 @@ export default {
       // Email contents
       subject: "",
       body: "",
+      emailButtonMailTo: "",
 
       // Reps selection
       isRepsDialogVisible: false,
@@ -213,13 +214,34 @@ export default {
     removeSelectedRep(rep) {
       this.selectedReps = this.arrayRemove(this.selectedReps, rep);
     },
+    getEmails() {
+      var emailString = "";
+      this.selectedReps.forEach(rep => {
+        rep.email.forEach(email => {
+          if (emailString != "") {
+            emailString += ";";
+          }
+          emailString += email;
+        });
+      });
+      console.log(emailString);
+      return emailString;
+    },
     arrayRemove(arr, value) {
       return arr.filter(function(ele) {
         return ele != value;
       });
     },
     sendEmailButtonClicked() {
-      console.log(this.filters);
+      // console.log(this.filters);
+
+      window.location.href =
+        "mailto:" +
+        this.getEmails() +
+        "?subject=" +
+        this.subject +
+        "&body=" +
+        this.body;
     },
     customFilter(value, search, filter) {
       // console.log("SEARCHING: " + search);
