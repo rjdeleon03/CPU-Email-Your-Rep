@@ -4,9 +4,9 @@
     <v-container fluid>
       <v-row justify="center" no-gutters>
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-          <v-card outlined class="pa-2 mx-auto" @click="displayRepsSelection">
+          <v-card outlined class="recipients-box pa-2 mx-auto" @click="displayRepsSelection">
             <p class="subheading">
-              Recipient Representative
+              Recipient Representative(s)
               <v-icon>mdi-cursor-default-click</v-icon>
             </p>
             <v-chip-group column active-class="primary--text">
@@ -26,6 +26,15 @@
             <v-spacer></v-spacer>
             <v-btn outlined class="pa-2" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
               <span>Source</span>
+            </v-btn>
+            <v-btn
+              outlined
+              class="pa-0"
+              @click="clearReps"
+              style="margin-left: 6px"
+              :disabled="selectedReps.length == 0"
+            >
+              <span>Clear</span>
             </v-btn>
             <v-btn
               outlined
@@ -219,6 +228,9 @@ export default {
     }
   },
   methods: {
+    clearReps() {
+      this.selectedReps = [];
+    },
     copyEmails() {
       this.$copyText(this.getEmails());
       this.snackbar = true;
@@ -263,9 +275,9 @@ export default {
       // console.log(this.filters);
 
       window.location.href =
-        "mailto:" +
+        "mailto:?bcc=" +
         this.getEmails() +
-        "?subject=" +
+        "&subject=" +
         this.subject +
         "&body=" +
         this.body;
@@ -320,6 +332,10 @@ div.v-text-field__details {
 div.v-input__slot {
   margin-top: 20px;
   margin-bottom: 0px;
+}
+.recipients-box {
+  max-height: 300px;
+  overflow-y: auto;
 }
 /* .v-text-field input {
   font-size: 0.95em;

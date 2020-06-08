@@ -1,10 +1,11 @@
 <template>
   <v-dialog v-model="isVisible" max-width="700" persistent>
     <v-card>
-      <v-card-title class="headline">Select One Recipient</v-card-title>
+      <v-card-title v-if="limit === 1" class="headline">Select One Recipient</v-card-title>
+      <v-card-title v-else class="headline">Select Up to {{limit}} Recipients</v-card-title>
       <v-card-text
         class="text-left"
-      >Only those who voted YES are displayed. Click OK after selecting a representative.</v-card-text>
+      >Only those who voted YES are displayed. Click OK after selecting representative(s).</v-card-text>
       <v-card-text>
         <v-text-field
           v-model="tableSearch"
@@ -27,7 +28,7 @@
       <v-data-table
         :headers="tableHeaders"
         :items="repsList"
-        :single-select="true"
+        :single-select="limit == 1"
         :search="tableSearch"
         :footer-props="{
           'items-per-page-options': rowsPerPageItems
@@ -37,7 +38,7 @@
         v-model="selectedRepsLocal"
         show-select
       >
-        <template v-slot:header.data-table-select></template>
+        <!-- <template v-slot:header.data-table-select></template> -->
         <template v-slot:item.data-table-select="{ item, isSelected, select }">
           <v-simple-checkbox
             :value="isSelected"
@@ -62,7 +63,7 @@ export default {
   props: ["isVisible", "repsList", "selectedReps", ""],
   data() {
     return {
-      limit: 1,
+      limit: 50,
       rowsPerPageItems: [5, 10, 15, -1],
       tableSearch: "",
       tableHeaders: [
