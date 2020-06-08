@@ -2,7 +2,9 @@
   <v-dialog v-model="isVisible" max-width="700" persistent>
     <v-card>
       <v-card-title class="headline">Select One Recipient</v-card-title>
-
+      <v-card-text
+        class="text-left"
+      >Only those who voted YES are displayed. Click OK after selecting a representative.</v-card-text>
       <v-card-text>
         <v-text-field
           v-model="tableSearch"
@@ -47,7 +49,7 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="amber darken-4" text @click="close">OK</v-btn>
+        <v-btn color="amber" text @click="close">OK</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

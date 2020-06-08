@@ -1,102 +1,102 @@
 <template>
   <v-container>
-    <v-form ref="form">
-      <v-container fluid>
-        <v-row justify="center" no-gutters>
-          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-            <v-card outlined class="pa-2 mx-auto" @click="displayRepsSelection">
-              <p class="subheading">
-                Recipient Representative
-                <v-icon>mdi-cursor-default-click</v-icon>
-              </p>
-              <v-chip-group column active-class="primary--text">
-                <v-chip
-                  v-for="(rep, index) in selectedReps"
-                  :key="index"
-                  close
-                  @click:close="removeSelectedRep(rep)"
-                >{{ rep.name }} ({{ rep.district }})</v-chip>
-                <!-- <v-chip>Extra Soft</v-chip>
+    <!-- <v-form ref="form"> -->
+    <v-container fluid>
+      <v-row justify="center" no-gutters>
+        <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+          <v-card outlined class="pa-2 mx-auto" @click="displayRepsSelection">
+            <p class="subheading">
+              Recipient Representative
+              <v-icon>mdi-cursor-default-click</v-icon>
+            </p>
+            <v-chip-group column active-class="primary--text">
+              <v-chip
+                v-for="(rep, index) in selectedReps"
+                :key="index"
+                close
+                @click:close="removeSelectedRep(rep)"
+              >{{ rep.name }} ({{ rep.district }})</v-chip>
+              <!-- <v-chip>Extra Soft</v-chip>
                 <v-chip>Soft</v-chip>
                 <v-chip>Medium</v-chip>
-                <v-chip>Hard</v-chip>-->
-              </v-chip-group>
-            </v-card>
-            <v-row class="footnote-row">
-              <v-spacer></v-spacer>
-              <v-btn outlined class="pa-2" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
-                <span>Source</span>
-              </v-btn>
-              <v-btn
-                outlined
-                class="pa-0"
-                @click="copyEmails"
-                style="margin-left: 6px"
-                :disabled="selectedReps.length == 0"
-              >
-                <span>Copy</span>
-              </v-btn>
-            </v-row>
-          </v-col>
-        </v-row>
-
-        <v-row justify="center" no-gutters>
-          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-            <v-text-field v-model="subject" label="Subject" single-line outlined></v-text-field>
-            <v-row class="footnote-row">
-              <v-spacer></v-spacer>
-              <v-btn
-                outlined
-                class="pa-0"
-                @click="copySubject"
-                style="margin-left: 6px"
-                :disabled="subject == ''"
-              >
-                <span>Copy</span>
-              </v-btn>
-            </v-row>
-          </v-col>
-        </v-row>
-        <v-row justify="center" no-gutters>
-          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-            <v-textarea v-model="body" label="Body" single-line outlined></v-textarea>
-            <v-row class="footnote-row">
-              <v-spacer></v-spacer>
-              <v-btn
-                outlined
-                class="pa-0"
-                @click="copyBody"
-                style="margin-left: 6px"
-                :disabled="body == ''"
-              >
-                <span>Copy</span>
-              </v-btn>
-            </v-row>
-          </v-col>
-        </v-row>
-
-        <br />
-        <v-row justify="center">
-          <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-            <p class="note">
-              NOTE: Clicking on this button will redirect you to your default email application. We
-              <strong>STRONGLY RECOMMEND</strong> using a dummy account to send the email.
-            </p>
-            <v-btn
-              class="default-button"
-              @click="sendEmailButtonClicked"
-              color="amber darken-3"
-              :disabled="submitDisabled"
-            >
-              <span class="button-text">Send Email</span>
+              <v-chip>Hard</v-chip>-->
+            </v-chip-group>
+          </v-card>
+          <v-row class="footnote-row">
+            <v-spacer></v-spacer>
+            <v-btn outlined class="pa-2" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
+              <span>Source</span>
             </v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-form>
+            <v-btn
+              outlined
+              class="pa-0"
+              @click="copyEmails"
+              style="margin-left: 6px"
+              :disabled="selectedReps.length == 0"
+            >
+              <span>Copy</span>
+            </v-btn>
+          </v-row>
+        </v-col>
+      </v-row>
+
+      <v-row justify="center" no-gutters>
+        <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+          <v-text-field v-model="subject" label="Subject" outlined></v-text-field>
+          <v-row class="footnote-row">
+            <v-spacer></v-spacer>
+            <v-btn
+              outlined
+              class="pa-0"
+              @click="copySubject"
+              style="margin-left: 6px"
+              :disabled="subject == ''"
+            >
+              <span>Copy</span>
+            </v-btn>
+          </v-row>
+        </v-col>
+      </v-row>
+      <v-row justify="center" no-gutters>
+        <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+          <v-textarea v-model="body" label="Body" outlined></v-textarea>
+          <v-row class="footnote-row">
+            <v-spacer></v-spacer>
+            <v-btn
+              outlined
+              class="pa-0"
+              @click="copyBody"
+              style="margin-left: 6px"
+              :disabled="body == ''"
+            >
+              <span>Copy</span>
+            </v-btn>
+          </v-row>
+        </v-col>
+      </v-row>
+
+      <br />
+      <v-row justify="center">
+        <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+          <p class="note">
+            NOTE: Clicking on this button will redirect you to your default email application. We
+            <strong>STRONGLY RECOMMEND</strong> using a dummy account to send the email.
+          </p>
+          <v-btn
+            class="default-button"
+            @click="sendEmailButtonClicked"
+            color="amber darken-3"
+            :disabled="submitDisabled"
+          >
+            <span class="button-text">Send Email</span>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
+    <!-- </v-form> -->
     <v-snackbar v-model="snackbar" :timeout="2000">
       The text has been copied to the clipboard
-      <v-btn color="amber darken-4" text @click="snackbar = false">Close</v-btn>
+      <v-btn color="amber" text @click="snackbar = false">Close</v-btn>
     </v-snackbar>
 
     <RepsDialog
