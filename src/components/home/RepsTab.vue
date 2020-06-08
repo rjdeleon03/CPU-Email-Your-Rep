@@ -2,7 +2,7 @@
   <v-container>
     <!-- <v-form ref="form"> -->
     <v-container fluid>
-      <v-row justify="center" no-gutters>
+      <v-row justify="center" no-gutters class="row-item">
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
           <v-card outlined class="recipients-box pa-2 mx-auto" @click="displayRepsSelection">
             <p class="subheading">
@@ -49,7 +49,7 @@
         </v-col>
       </v-row>
 
-      <v-row justify="center" no-gutters>
+      <v-row justify="center" no-gutters class="row-item">
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
           <v-text-field v-model="subject" label="Subject" outlined></v-text-field>
           <v-row class="footnote-row">
@@ -129,7 +129,7 @@ export default {
 
       // Email contents
       subject: "VOTE NO: JUNK TERROR BILL NOW",
-      body: `I vehemently oppose the Anti-Terrorism Bill of 2020 and urge you to renege your vote of support for the said bill. It is unconstitutional, unnecessary, and most of all, a potential means through which authorities can abuse power and step on the most basic rights of the people. As a Representative to Congress, you serve as the voice of the people and it is imperative that for the better meant of the people, you withdraw your vote and oppose the Anti-Terrorism Bill as well.`,
+      body: `I vehemently oppose the Anti-Terrorism Bill of 2020 and urge you to renege your vote of support for the said bill. It is unconstitutional, unnecessary, and most of all, a potential means through which authorities can abuse power and step on the most basic rights of the people. As a Representative to Congress, you serve as the voice of the people and it is imperative that for the betterment of the people, you withdraw your vote and oppose the Anti-Terrorism Bill as well.`,
       emailButtonMailTo: "",
 
       // Reps selection
@@ -138,7 +138,7 @@ export default {
       reps: repsList,
       selectedReps: [],
       filters: [0, 1, 2],
-      rowsPerPageItems: [5, 10, 15, -1],
+      rowsPerPageItems: [5, 10, 15, 50],
       submitDisabled: true,
 
       tableSearch: "",
@@ -330,12 +330,14 @@ div.v-text-field__details {
   display: none;
 }
 div.v-input__slot {
-  margin-top: 20px;
   margin-bottom: 0px;
 }
 .recipients-box {
   max-height: 300px;
   overflow-y: auto;
+}
+.row-item {
+  margin-bottom: 20px;
 }
 /* .v-text-field input {
   font-size: 0.95em;

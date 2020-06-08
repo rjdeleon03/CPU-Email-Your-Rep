@@ -38,7 +38,9 @@
         v-model="selectedRepsLocal"
         show-select
       >
-        <!-- <template v-slot:header.data-table-select></template> -->
+        <template v-slot:header.data-table-select="{ on , props }">
+          <v-simple-checkbox v-bind="props" v-on="on" :disabled="(limitReached && !props.value)" />
+        </template>
         <template v-slot:item.data-table-select="{ item, isSelected, select }">
           <v-simple-checkbox
             :value="isSelected"
@@ -64,7 +66,7 @@ export default {
   data() {
     return {
       limit: 50,
-      rowsPerPageItems: [5, 10, 15, -1],
+      rowsPerPageItems: [5, 10, 25, 50],
       tableSearch: "",
       tableHeaders: [
         {
