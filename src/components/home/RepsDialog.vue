@@ -65,8 +65,8 @@ export default {
   props: ["isVisible", "repsList", "selectedReps", ""],
   data() {
     return {
-      limit: 50,
-      rowsPerPageItems: [5, 10, 25, 50],
+      limit: 40,
+      rowsPerPageItems: [5, 10, 20, 40],
       tableSearch: "",
       tableHeaders: [
         {
