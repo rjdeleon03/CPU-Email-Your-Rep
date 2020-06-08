@@ -2,10 +2,10 @@
   <v-container>
     <v-row justify="center" no-gutters>
       <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-        <h1>#JunkTerrorBill</h1>
+        <h1>Junk Terror Bill Now!</h1>
         <p>
           Send an email to our Representatives in Congress to further strengthen
-          our calls to junk the Anti-Terrorism Act of 2020!
+          our calls to junk the Anti-Terrorism Bill of 2020!
         </p>
       </v-col>
     </v-row>
@@ -44,16 +44,16 @@ const RepsTab = () => import("@/components/home/RepsTab.vue");
 const repsUtils = require("@/utils/reps-utils");
 export default {
   components: {
-    RepsTab,
+    RepsTab
   },
   data() {
     return {
-      source: null,
+      source: null
     };
   },
   methods: {
     importFromCsv() {
-      const complete = (reps) => {
+      const complete = reps => {
         console.log(JSON.stringify(reps));
         // this.updateTestingCentersInDB(reps);
       };
@@ -61,8 +61,8 @@ export default {
         console.log("error");
       };
       repsUtils.get(this.$papa, this.source, complete, error);
-    },
-  },
+    }
+  }
 };
 </script>
 

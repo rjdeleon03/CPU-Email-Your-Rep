@@ -59,7 +59,7 @@
       </v-row>
       <v-row justify="center" no-gutters>
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-          <v-textarea v-model="body" label="Body" outlined></v-textarea>
+          <v-textarea v-model="body" label="Body" outlined rows="12"></v-textarea>
           <v-row class="footnote-row">
             <v-spacer></v-spacer>
             <v-btn
@@ -121,7 +121,8 @@ export default {
 
       // Email contents
       subject: "",
-      body: "",
+      body:
+        "I vehemently oppose the Anti-Terrorism Bill of 2020 and urge you to renege your vote of support for the said bill. It is unconstitutional, unnecessary, and most of all, a potential means through which authorities can abuse power and step on the most basic rights of the people. With 'terrorism' broadly and vaguely defined, we can only expect more of those expressing criticism towards the government to be subject to human rights violations and harassment by uniformed personnel. As a Representative to Congress, you serve as the voice of the people and it is imperative that for the better meant of the people, you withdraw your vote and oppose the Anti-Terrorism Bill as well.",
       emailButtonMailTo: "",
 
       // Reps selection
@@ -322,4 +323,10 @@ div.v-input__slot {
   margin-top: 20px;
   margin-bottom: 0px;
 }
+/* .v-text-field input {
+  font-size: 0.95em;
+}
+.v-textarea input {
+  font-size: 0.95em;
+} */
 </style>
