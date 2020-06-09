@@ -6,7 +6,7 @@
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
           <v-card outlined class="recipients-box pa-2 mx-auto">
             <p class="subheading">Recipient</p>
-            <h4>Rep.Erico Aristotle C. Aumentado</h4>
+            <h4>Rep. Erico Aristotle C. Aumentado</h4>
             <p>House Committee Chairperson on Science and Technology</p>
           </v-card>
           <v-row class="footnote-row"></v-row>
