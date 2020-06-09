@@ -5,7 +5,7 @@
         <h2>Scientists and Engineers, Let’s Barrage our Science and Tech Representative Who Voted YES to the Anti-Terror Bill!</h2>
         <br />
         <p>
-          The science and tech community can add its voice in Congress to junk the Anti-Terrorism Bill! We can pressure the chairperson of the House Committee on Science and Technology,
+          The science and tech community can lend its voice in Congress to strengthen calls to junk the Anti-Terrorism Bill! We can urge the chairperson of the House Committee on Science and Technology,
           <strong>
             <i>Rep. Aris Aumentado</i>
           </strong> from Bohol, to withdraw his YES vote so that we can bring down the majority vote for the bill and prevent its passage into law!
