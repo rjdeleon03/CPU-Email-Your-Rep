@@ -23,7 +23,7 @@ export default new Vuetify({
         primary: colors.amber, // #E53935
         secondary: colors.amber, // #FFCDD2
         accent: colors.indigo.base, // #3F51B5
-        background: colors.purple.darken4,
+        background: "#800000",
       },
     },
   },

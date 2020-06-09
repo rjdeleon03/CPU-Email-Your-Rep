@@ -4,48 +4,12 @@
     <v-container fluid>
       <v-row justify="center" no-gutters class="row-item">
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
-          <v-card outlined class="recipients-box pa-2 mx-auto" @click="displayRepsSelection">
-            <p class="subheading">
-              Recipient Representative(s)
-              <v-icon>mdi-cursor-default-click</v-icon>
-            </p>
-            <v-chip-group column active-class="primary--text">
-              <v-chip
-                v-for="(rep, index) in selectedReps"
-                :key="index"
-                close
-                @click:close="removeSelectedRep(rep)"
-              >{{ rep.name }} ({{ rep.district }})</v-chip>
-              <!-- <v-chip>Extra Soft</v-chip>
-                <v-chip>Soft</v-chip>
-                <v-chip>Medium</v-chip>
-              <v-chip>Hard</v-chip>-->
-            </v-chip-group>
+          <v-card outlined class="recipients-box pa-2 mx-auto">
+            <p class="subheading">Recipient</p>
+            <h4>Rep.Erico Aristotle C. Aumentado</h4>
+            <p>House Committee Chairperson on Science and Technology</p>
           </v-card>
-          <v-row class="footnote-row">
-            <v-spacer></v-spacer>
-            <v-btn outlined class="pa-2" href="https://t.co/LNhD5IMwwT?amp=1" target="_blank">
-              <span>Source</span>
-            </v-btn>
-            <v-btn
-              outlined
-              class="pa-0"
-              @click="clearReps"
-              style="margin-left: 6px"
-              :disabled="selectedReps.length == 0"
-            >
-              <span>Clear</span>
-            </v-btn>
-            <v-btn
-              outlined
-              class="pa-0"
-              @click="copyEmails"
-              style="margin-left: 6px"
-              :disabled="selectedReps.length == 0"
-            >
-              <span>Copy</span>
-            </v-btn>
-          </v-row>
+          <v-row class="footnote-row"></v-row>
         </v-col>
       </v-row>
 
@@ -94,7 +58,7 @@
 
       <br />
       <v-row justify="center">
-        <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+        <v-col cols="12" xl="12" lg="12" md="12" sm="8" xs="8">
           <p
             class="note"
           >NOTE: Clicking on this button will redirect you to your default email application.</p>
@@ -105,6 +69,15 @@
             :disabled="submitDisabled"
           >
             <span class="button-text">Send Email</span>
+          </v-btn>
+          <v-btn
+            style="margin-left: 10px"
+            class="default-button"
+            @click="contactViaFb"
+            color="blue darken-3"
+            :disabled="submitDisabled"
+          >
+            <span class="button-text">Contact via Facebook</span>
           </v-btn>
         </v-col>
       </v-row>
@@ -138,7 +111,7 @@ export default {
       // Email contents
       name: "",
       subject: "Withdraw your 'YES' vote to the Anti-Terror Bill (HB 6875)",
-      body: `I am a member of the PH science and tech community, and as our representative in the legislature, I demand that you protect the rights of the Filipinos to freedom of speech and withdraw your 'YES' vote on the Anti-Terror Bil (HB 6875).\n\n<Your Name>`,
+      body: `I am a member of the PH science and tech community, and as our representative in the legislature, I demand that you protect the rights of the Filipinos to freedom of speech and withdraw your 'YES' vote on the Anti-Terror Bill (HB 6875).\n\n<Your Name>`,
       emailButtonMailTo: "",
 
       // Reps selection
@@ -148,7 +121,7 @@ export default {
       selectedReps: [],
       filters: [0, 1, 2],
       rowsPerPageItems: [5, 10, 15, 50],
-      submitDisabled: true,
+      submitDisabled: false,
 
       tableSearch: "",
       tableHeaders: [
@@ -190,21 +163,15 @@ export default {
         this.submitDisabled = this.computedButtonDisabled;
       }
     },
-    selectedReps: {
-      handler() {
-        this.submitDisabled = this.computedButtonDisabled;
-      }
-    },
     name: {
       handler() {
-        this.body = `I am a member of the PH science and tech community, and as our representative in the legislature, I demand that you protect the rights of the Filipinos to freedom of speech and withdraw your 'YES' vote on the Anti-Terror Bil (HB 6875).\n\n${this
+        this.body = `I am a member of the PH science and tech community, and as our representative in the legislature, I demand that you protect the rights of the Filipinos to freedom of speech and withdraw your 'YES' vote on the Anti-Terror Bill (HB 6875).\n\n${this
           .name ?? ""}`;
       }
     }
   },
   computed: {
     computedButtonDisabled() {
-      if (!this.selectedReps || this.selectedReps.length == 0) return true;
       if (!this.subject || this.subject == "") return true;
       if (!this.body || this.body == "") return true;
       return false;
@@ -287,15 +254,19 @@ export default {
       });
     },
     sendEmailButtonClicked() {
-      // console.log(this.filters);
+      // console.log(escape(this.body));
 
       window.location.href =
         "mailto:?bcc=" +
-        this.getEmails() +
+        "ericoaristotle.aumentado@house.gov.ph" +
         "&subject=" +
-        this.subject +
+        escape(this.subject) +
         "&body=" +
-        this.body;
+        escape(this.body);
+    },
+    contactViaFb() {
+      // console.log(escape(this.body));
+      window.open("https://fb.com/aris.aumentado/", "_blank");
     },
     customFilter(value, search, filter) {
       // console.log("SEARCHING: " + search);
@@ -349,8 +320,15 @@ div.v-input__slot {
   margin-bottom: 0px;
 }
 .recipients-box {
-  max-height: 300px;
   overflow-y: auto;
+  text-align: start;
+}
+.recipients-box h4,
+.recipients-box p {
+  margin-left: 2px;
+}
+.recipients-box h4 {
+  margin-top: 6px;
 }
 /* .v-text-field input {
   font-size: 0.95em;

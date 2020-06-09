@@ -14,16 +14,13 @@
         </v-btn>
       </v-card-text>
 
-      <v-card-text class="white--text pt-0">
-        For inquiries, you may reach us through our social media accounts or via email at
-        <a
-          href="mailto:secretariat@cp-union.com"
-        >secretariat@cp-union.com</a>.
-      </v-card-text>
+      <v-card-text
+        class="white--text pt-0"
+      >For inquiries, you may reach us through our social media accounts.</v-card-text>
       <v-divider></v-divider>
       <v-card-text class="white--text">
         {{ new Date().getFullYear() }} —
-        <strong>Computer Professionals' Union</strong>
+        <strong>SnT Say No to Tyranny</strong>
       </v-card-text>
     </v-card>
   </v-footer>
@@ -46,10 +43,13 @@ export default {
         {
           id: 3,
           icon: "mdi-facebook",
-          url: "http://fb.com/cpunion"
+          url: "https://www.facebook.com/SNTsaynototyrannyPH"
         },
-        { id: 4, icon: "mdi-twitter", url: "https://twitter.com/CP_Union" },
-        { id: 5, icon: "mdi-instagram", url: "https://instagram.com/cpu_ph" }
+        {
+          id: 4,
+          icon: "mdi-twitter",
+          url: "https://twitter.com/SNT2alliancePH"
+        }
       ]
     };
   }
