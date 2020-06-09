@@ -49,6 +49,13 @@
         </v-col>
       </v-row>
 
+      <v-row justify="center" no-gutters>
+        <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
+          <v-text-field v-model="name" label="Your Name" outlined></v-text-field>
+          <v-row class="footnote-row" />
+        </v-col>
+      </v-row>
+
       <v-row justify="center" no-gutters class="row-item">
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
           <v-text-field v-model="subject" label="Subject" outlined></v-text-field>
@@ -66,6 +73,7 @@
           </v-row>
         </v-col>
       </v-row>
+
       <v-row justify="center" no-gutters>
         <v-col cols="12" xl="5" lg="6" md="7" sm="8" xs="8">
           <v-textarea v-model="body" label="Body" outlined rows="9"></v-textarea>
@@ -128,8 +136,9 @@ export default {
       snackbar: false,
 
       // Email contents
-      subject: "VOTE NO: JUNK TERROR BILL NOW",
-      body: `I vehemently oppose the Anti-Terrorism Bill of 2020 and urge you to renege your vote of support for the said bill. It is unconstitutional, unnecessary, and most of all, a potential means through which authorities can abuse power and step on the most basic rights of the people. As a Representative to Congress, you serve as the voice of the people and it is imperative that for the betterment of the people, you withdraw your vote and oppose the Anti-Terrorism Bill as well.`,
+      name: "",
+      subject: "Withdraw your 'YES' vote to the Anti-Terror Bill (HB 6875)",
+      body: `I am a member of the PH science and tech community, and as our representative in the legislature, I demand that you protect the rights of the Filipinos to freedom of speech and withdraw your 'YES' vote on the Anti-Terror Bil (HB 6875).\n\n<Your Name>`,
       emailButtonMailTo: "",
 
       // Reps selection
@@ -184,6 +193,12 @@ export default {
     selectedReps: {
       handler() {
         this.submitDisabled = this.computedButtonDisabled;
+      }
+    },
+    name: {
+      handler() {
+        this.body = `I am a member of the PH science and tech community, and as our representative in the legislature, I demand that you protect the rights of the Filipinos to freedom of speech and withdraw your 'YES' vote on the Anti-Terror Bil (HB 6875).\n\n${this
+          .name ?? ""}`;
       }
     }
   },
@@ -322,6 +337,7 @@ p.subheading {
 .footnote-row {
   margin-top: 4px;
   margin-right: 2px;
+  margin-bottom: 20px;
 }
 .footnote-row span {
   font-size: 11px;
@@ -335,9 +351,6 @@ div.v-input__slot {
 .recipients-box {
   max-height: 300px;
   overflow-y: auto;
-}
-.row-item {
-  margin-bottom: 20px;
 }
 /* .v-text-field input {
   font-size: 0.95em;
